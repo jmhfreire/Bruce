@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import skeleton.*;
@@ -48,12 +49,13 @@ public class Wizard extends Unit implements CharacterActions{
 	private String direction;
 	
 	public Wizard(){
-		 	ImageIcon ii = new ImageIcon(this.getClass().getResource("wizard.png"));
+		 	ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		 	ImageIcon ii = new ImageIcon(cl.getResource("wizard.png"));
 		 	FrostBolts = new ArrayList<FrostBolt>();
 	        image = ii.getImage();
-	        ImageIcon ff = new ImageIcon(this.getClass().getResource("wizardcool.png"));
+	        ImageIcon ff = new ImageIcon(cl.getResource("wizardcool.png"));
 	        frostbolt_snared = ff.getImage();
-	        ImageIcon gg = new ImageIcon(this.getClass().getResource("wizard1.png"));
+	        ImageIcon gg = new ImageIcon(cl.getResource("wizard1.png"));
 	        image1 = gg.getImage();
 	        width = image.getWidth(null);
 	        height = image.getHeight(null);

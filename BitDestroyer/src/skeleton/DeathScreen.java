@@ -16,7 +16,8 @@ public class DeathScreen {
 	static private Image image;
 	
 	public DeathScreen(){
-		ImageIcon death = new ImageIcon(this.getClass().getResource("deathscreen.png"));
+		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		ImageIcon death = new ImageIcon(cl.getResource("deathscreen.png"));
 		image = death.getImage();
 		x = 325;
 		y = 325;

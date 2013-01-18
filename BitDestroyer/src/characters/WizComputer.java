@@ -31,7 +31,8 @@ public class WizComputer implements CharacterActions{
 	
 	
 	public WizComputer(){
-		ImageIcon ii = new ImageIcon(this.getClass().getResource(wizComputer));
+		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		ImageIcon ii = new ImageIcon(cl.getResource(wizComputer));
 		image = ii.getImage();
 		width = image.getWidth(null);
 		height = image.getHeight(null);

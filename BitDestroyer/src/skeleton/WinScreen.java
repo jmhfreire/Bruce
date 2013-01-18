@@ -9,7 +9,8 @@ public class WinScreen {
 	private Image image;
 	
 	public WinScreen(){
-		ImageIcon win = new ImageIcon(this.getClass().getResource("winscreen.png"));
+		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		ImageIcon win = new ImageIcon(cl.getResource("winscreen.png"));
 		image = win.getImage();
 		x = 325;
 		y = 325;

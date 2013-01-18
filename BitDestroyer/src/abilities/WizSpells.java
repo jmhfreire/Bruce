@@ -43,7 +43,8 @@ public class WizSpells extends Spells{
 		public FrostBolt(int x, int y, String any){
 			super.snare_effect = EffectsDatabase.snareTypes.FROSTBOLT;
 			super.setDamage(20);
-			ImageIcon ii = new ImageIcon(this.getClass().getResource(
+			ClassLoader cl = Thread.currentThread().getContextClassLoader();
+			ImageIcon ii = new ImageIcon(cl.getResource(
 					"frostboltimgDOWN.png"));
 			super.image = ii.getImage();
 			super.visible = true;

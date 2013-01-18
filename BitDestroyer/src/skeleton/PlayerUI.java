@@ -32,7 +32,8 @@ public class PlayerUI extends Component{
 	// the button.
 	public PlayerUI(Wizard wiz){
 		mage = wiz;
-		ImageIcon SB = new ImageIcon(this.getClass().getResource("SKILL_BAR.png"));
+		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		ImageIcon SB = new ImageIcon(cl.getResource("SKILL_BAR.png"));
 		SKILL_BAR = SB.getImage();
 		
 		
