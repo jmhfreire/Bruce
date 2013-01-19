@@ -31,6 +31,5 @@ public class Skeleton extends JFrame{
 	
 	public static void main(String[] args){
 		new Skeleton();
-		System.out.println(width);
 	}
 }

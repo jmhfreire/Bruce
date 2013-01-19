@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import abilities.WizSpells;
 import abilities.WizSpells.FrostBolt;
 
-public class WizComputer implements CharacterActions{
+public class WizComputer{
 	WizSpells rofl = new WizSpells();
 	ArrayList<FrostBolt> frostbolts = new ArrayList<FrostBolt>();
 	private Image image;
@@ -118,11 +118,5 @@ public class WizComputer implements CharacterActions{
 		y +=posdy;
 		x +=negdx;
 		y +=negdy;
-	}
-
-	@Override
-	public void Attack() {
-		// TODO Auto-generated method stub
-		
 	}
 }

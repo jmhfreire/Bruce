@@ -77,14 +77,12 @@ public class Environment extends JPanel{
 	
 		
 		Graphics2D g2 = (Graphics2D)g;
-		//makes the images less sprite-looking.
+		//smoothes out the images.
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.drawImage(computer.getImage(), computer.getX(), computer.getY(), this);
-		// does the drawings for the following objects. Might make a package called "draw" that contains all the drawing for all types of classes.
-		// For example, Wizard_Draw class will have a method drawWizard, which will take a wizard's images and draw it. Alternatively could mount
-		// all the images in the game in the "draw" package class path, and just directly reference them / initiate them in draw (which would process faster
-		// I would think).
+		
+		// does the drawings for the following objects:
 		mage.drawWizard(g2);
 		playerUI.drawPlayerUI(g2);
 		deadHero.drawDeathScreen(g2, mage);
@@ -101,7 +99,7 @@ public class Environment extends JPanel{
     	   g2.drawImage(enemyFrost.getImage(), enemyFrost.getX(), enemyFrost.getY(), this);
        }
        
-       // HealthBar will be its own class with this method inside it;
+       // HealthBar will be its own class with this method inside it (maybe);
        Rectangle2D healthBarComputer = new Rectangle2D.Double(computer.getX(), computer.getY()-30, 100, 10);
 	      g2.setStroke(new BasicStroke(1));
 	      g2.setColor(Color.red);
@@ -216,9 +214,6 @@ public class ActionTask extends TimerTask{
 	            }
 	        }
 		 	
-		 	
-		
-	 
 	    private class TAdapter extends KeyAdapter {
 
 	        public void keyPressed(KeyEvent e) {

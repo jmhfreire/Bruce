@@ -19,17 +19,20 @@ import abilities.Spells;
 public class PlayerUI extends Component{
 	private Environment environment;
 	private int height;
+	private int healthBar_width = 300;
+	private int healthBar_height = 50;
 	
 	private Spells ability_one;
 	
 	public Image SKILL_BAR;
 	public Image skill_one;
-	// This will take a UNIT, rather than a WIZARD.
+	// This(PlayerUI) will have a field UNIT, rather than a WIZARD.
 	public Wizard mage;
-	
-	// The button images wont be in the class path of abilities but rather here, in skeleton class path. 
+ 
 	// Don't need to make a field for button image in Spell class, just a field for the name of
 	// the button.
+	
+	// The UI will take in a Unit, not wizard, once Unit class is fully implemented / fleshed out.
 	public PlayerUI(Wizard wiz){
 		mage = wiz;
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
@@ -46,10 +49,10 @@ public class PlayerUI extends Component{
 	public void drawPlayerUI(Graphics2D g2){
 		
 		g2.drawImage(SKILL_BAR, 0, Skeleton.height-2*SKILL_BAR.getHeight(null), environment);
-		Rectangle2D healthBar = new Rectangle2D.Double(0, 900, 300, 50);
+		Rectangle2D healthBar = new Rectangle2D.Double(0, Skeleton.height-200, healthBar_width, healthBar_height);
 	      g2.setStroke(new BasicStroke(1));
 	      g2.setColor(Color.red);
-	      g2.fillRect(0, 900, mage.getHealthFill(), 50);
+	      g2.fillRect(0, Skeleton.height-200, mage.getHealthFill(), healthBar_height);
 	      g2.draw(healthBar);
 	}
 	

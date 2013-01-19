@@ -1,4 +1,5 @@
 package characters;
+import abilities.Spells;
 import abilities.WizSpells;
 import abilities.WizSpells.FrostBolt;
 
@@ -15,38 +16,16 @@ import skeleton.*;
 
 import javax.swing.ImageIcon;
 
-public class Wizard extends Unit implements CharacterActions{
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+public class Wizard extends Unit{
 	// The spells that a wizard can cast;
 	public WizSpells spellBook = new WizSpells();
-	
 	private Environment environment;
-	private PlayerUI playerUI;
 	
-	private Skeleton frame;
-	private int x;
-	private int y;
-	private int width;
-	private int height;
-	
-	double baseMoveSpeed = 2;
-	double movement_speed = 2;
-	int maxHealth = 100;
-	int health = maxHealth;
-	double healthPercent = (double) health/maxHealth;
-	double healthFillConversion = (300*healthPercent);
-	int healthFill_UI = (int) healthFillConversion;
 	private Image image;
-	private Image frostbolt_snared; // Hmm.. each hero will need an animation for different spelleffects.
+	private Image frostbolt_snared; // image that gets drawn when Wizard's movement speed is decreased.
 	private Image image1;
-	
-	private double posdx;
-	private double posdy;
-	private double negdx;
-	private double negdy;
 	private ArrayList<FrostBolt>  FrostBolts;
 	//to improve make direction an enum instead of hard_coding string values.
-	private String direction;
 	
 	public Wizard(){
 		 	ClassLoader cl = Thread.currentThread().getContextClassLoader();
@@ -59,45 +38,12 @@ public class Wizard extends Unit implements CharacterActions{
 	        image1 = gg.getImage();
 	        width = image.getWidth(null);
 	        height = image.getHeight(null);
-	        x = screenSize.width/2 - image.getWidth(null);
-	        y = Skeleton.height - (image.getHeight(null));
-	        System.out.println(x);
-			System.out.println(y);
-	        
-	}
-	
-	public int getX(){
-		return x;
-	}
-	
-	public int getY(){
-		return y;
+	        x = Skeleton.width/2 - image.getWidth(null);
+	        y = Skeleton.height - (image.getHeight(null));       
 	}
 	
 	public Image getImage(){
 		return image;
-	}
-	
-	public int getHealth(){
-		return health;
-	}
-	public int getMaxHealth(){
-		return maxHealth;
-	}
-	public int getHealthFill(){
-		return healthFill_UI;
-	}
-	public double getHealthPercent(){
-		return healthPercent;
-	}
-	public double getHealthFillConversion(){
-		return healthFillConversion;
-	}
-	public double getMovementSpeed(){
-		return movement_speed;
-	}
-	public double getBaseSpeed(){
-		return baseMoveSpeed;
 	}
 	public Image getFrostboltSnaredImg(){
 		return frostbolt_snared;
@@ -110,13 +56,6 @@ public class Wizard extends Unit implements CharacterActions{
 		this.healthPercent = (double) health/maxHealth;
 		this.healthFillConversion = (300*healthPercent);
 		this.healthFill_UI = (int) healthFillConversion;
-	}
-	public void setMovementSpeed(double speed){
-		this.movement_speed = speed;
-	}
-	
-	public Rectangle getBounds(){
-		return new Rectangle(x,y,width,height);
 	}
 	
 	public void moveChar(){
@@ -132,9 +71,6 @@ public class Wizard extends Unit implements CharacterActions{
 		if(direction == "DOWN"){
 			y += posdy;
 			}
-	}
-	
-	public void Attack(KeyEvent e){
 	}
 	
 	public void castFrostbolt(KeyEvent e){
@@ -242,11 +178,6 @@ public class Wizard extends Unit implements CharacterActions{
             posdy = 0;
         }
     }
-
-	@Override
-	public void Attack() {
-		// TODO Auto-generated method stub	
-	}
 	
 	public void drawWizard(Graphics2D g2){
 		for (int i = 0; i < FrostBolts.size(); i++ ) {
