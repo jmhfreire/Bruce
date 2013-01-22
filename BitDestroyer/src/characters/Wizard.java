@@ -1,15 +1,10 @@
 package characters;
-import abilities.Spells;
 import abilities.WizSpells;
 import abilities.WizSpells.FrostBolt;
 
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import skeleton.*;
@@ -51,6 +46,7 @@ public class Wizard extends Unit{
 	public Image getImage1(){
 		return image1;
 	}
+	@Override
 	public void updateHealth(int health){
 		this.health = health;
 		this.healthPercent = (double) health/maxHealth;
@@ -58,6 +54,7 @@ public class Wizard extends Unit{
 		this.healthFill_UI = (int) healthFillConversion;
 	}
 	
+	@Override
 	public void moveChar(){
 		if(direction == "LEFT"){
 			x += negdx;

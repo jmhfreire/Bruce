@@ -1,14 +1,9 @@
 package skeleton;
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.geom.Rectangle2D;
@@ -17,19 +12,17 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import abilities.SpellEffects;
-import abilities.WizSpells;
 import abilities.WizSpells.FrostBolt;
 import characters.WizComputer;
 import characters.Wizard;
 
 public class Environment extends JPanel{
-	private Skeleton mainFrame;
-	private int ENVIRONMENT_WIDTH;
-	private int ENVIRONMENT_HEIGHT;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private PlayerUI playerUI;
 	private Clock clockimg;
 	private int clock = 0;
@@ -48,9 +41,6 @@ public class Environment extends JPanel{
 	 //private FrostBolt frostbolt = wiz.new FrostBolt();
 	
 	public Environment(){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		ENVIRONMENT_WIDTH = screenSize.width;
-		ENVIRONMENT_HEIGHT = screenSize.height;
 		mage = new Wizard();
 		clockimg = new Clock();
 		deadHero = new DeathScreen();
@@ -72,6 +62,7 @@ public class Environment extends JPanel{
         
 	}
 	
+	@Override
 	public void paint(Graphics g){
 		super.paint(g);
 	
@@ -111,6 +102,7 @@ public class Environment extends JPanel{
 	//This is the timer for animating the mage.
 	public class AnimateCharTask extends TimerTask{
 
+		@Override
 		public void run() {
 			drawTimer = drawTimer+1;
 			
@@ -120,6 +112,7 @@ public class Environment extends JPanel{
 	//This is the timer that gets checked every 5 milliseconds. Gotta change to 1 ms. These are the actions for the
 	//game.
 public class ActionTask extends TimerTask{ 	
+	@Override
 	public void run() {
 		 	mage.moveChar();
 	        computer.moveChar();
@@ -208,7 +201,8 @@ public class ActionTask extends TimerTask{
 	// The timer for the computer casting frostbolt (which is every 1 second).
 	  class ScheduleTask extends TimerTask {
 
-	            public void run() {
+	            @Override
+				public void run() {
 	            	computer.Cast();     	
 	                repaint();
 	            }
@@ -216,10 +210,12 @@ public class ActionTask extends TimerTask{
 		 	
 	    private class TAdapter extends KeyAdapter {
 
-	        public void keyPressed(KeyEvent e) {
+	        @Override
+			public void keyPressed(KeyEvent e) {
 	        	mage.keyPressed(e);
 	        }
-	        public void keyReleased(KeyEvent e) {
+	        @Override
+			public void keyReleased(KeyEvent e) {
 	            mage.keyReleased(e);
 	        }        
 	    }

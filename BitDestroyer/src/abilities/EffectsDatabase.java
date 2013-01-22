@@ -1,6 +1,5 @@
 package abilities;
 
-import characters.Unit;
 import characters.Wizard;
 
 public class EffectsDatabase {

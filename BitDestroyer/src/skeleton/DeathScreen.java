@@ -44,7 +44,7 @@ public class DeathScreen {
 	}
 
 	public void setImage(Image image) {
-		this.image = image;
+		DeathScreen.image = image;
 	}
 	
 	// Replace Wizard parameter with Unit once Unit is implemented;

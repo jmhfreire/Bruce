@@ -1,5 +1,4 @@
 package characters;
-import skeleton.*;
 
 public class Character_Class {
 	private double currentHealth;

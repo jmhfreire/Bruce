@@ -2,7 +2,6 @@ package skeleton;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Clock extends JLabel{
@@ -19,6 +18,7 @@ public class Clock extends JLabel{
 		y = 10;
 	}
 
+	@Override
 	public int getX() {
 		return x;
 	}
@@ -27,6 +27,7 @@ public class Clock extends JLabel{
 		this.x = x;
 	}
 
+	@Override
 	public int getY() {
 		return y;
 	}

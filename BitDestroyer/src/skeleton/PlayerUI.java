@@ -3,26 +3,20 @@ package skeleton;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.geom.Rectangle2D;
-import java.awt.image.ImageObserver;
-
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-
 import characters.Wizard;
 
-import abilities.Spells;
-
 public class PlayerUI extends Component{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Environment environment;
-	private int height;
 	private int healthBar_width = 300;
 	private int healthBar_height = 50;
-	
-	private Spells ability_one;
 	
 	public Image SKILL_BAR;
 	public Image skill_one;

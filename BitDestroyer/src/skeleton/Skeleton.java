@@ -1,15 +1,14 @@
 package skeleton;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-import characters.Wizard;
-
-import abilities.Spells;
-
 public class Skeleton extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static int width;
 	public static int height;
 	public Skeleton(){

@@ -1,6 +1,8 @@
 package characters;
 
+import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 
 public abstract class Unit {
 
@@ -8,7 +10,12 @@ public abstract class Unit {
 		protected int y;
 		protected int width;
 		protected int height;
+		protected Dimension screenSize;
 		
+		protected Dimension getScreenSize() {
+			return screenSize;
+		}
+
 		double baseMoveSpeed = 2;
 		double movement_speed = 2;
 		int maxHealth = 100;
@@ -24,7 +31,9 @@ public abstract class Unit {
 		//to improve make direction an enum instead of hard_coding string values.
 		protected String direction;
 		
-		public Unit(){   
+		public Unit(){ 
+			
+			this.screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		}
 		
 		public int getX(){

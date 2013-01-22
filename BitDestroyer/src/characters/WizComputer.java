@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import abilities.WizSpells;
 import abilities.WizSpells.FrostBolt;
 
-public class WizComputer{
+public class WizComputer extends Unit{
 	WizSpells rofl = new WizSpells();
 	ArrayList<FrostBolt> frostbolts = new ArrayList<FrostBolt>();
 	private Image image;
@@ -114,6 +114,12 @@ public class WizComputer{
 
 	
 	public void moveChar() {
+		
+		if(x>=this.screenSize.getWidth() - this.width)
+			posdx = -1;
+		else if (x < width)
+			negdx = 1;
+		
 		x +=posdx;
 		y +=posdy;
 		x +=negdx;

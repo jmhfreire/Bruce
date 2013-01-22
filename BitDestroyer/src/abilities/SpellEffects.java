@@ -1,6 +1,5 @@
 package abilities;
 
-import characters.Character_Class;
 import characters.Wizard;
 
 public class SpellEffects {

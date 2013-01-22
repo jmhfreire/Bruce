@@ -4,8 +4,6 @@ import java.awt.Image;
 import java.awt.Rectangle;
 
 import abilities.EffectsDatabase;
-import characters.Wizard;
-import skeleton.*;
 
 public class Spells{
 	
